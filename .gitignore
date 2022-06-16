@@ -1,0 +1,106 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+!**/mbed-os.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Library
+*.qdb
+*.qtl
+*.qpg
+
+# Dolphin
+*.directory
+
+# ModelSim
+*.sdo
+*.svo
+*.vho
+*.vcd
+*.bak
+*.bak*
+qsim
+**/*.bak
+*.cr.mti
+*.wlf
+**/work/
+*.ini
+rtl_work
+msim_transcript
+behavioural_run_msim_rtl_vhdl.do
+
+# Quartus
+**/db/
+*.qws
+**/incremental_db/
+**/output_files/
+**/*.rpt
+*_generation_script*
+*_inst.vhd
+*.bak
+*.cmp
+*.done
+*.eqn
+*.hex
+*.html
+*.jdi
+
+# *.mif
+
+*.pin
+*.sld
+*.pof
+*.ptf.*
+*.qar
+*.qarlog
+*.qws
+*.rpt
+*.smsg
+*.sof
+*.sopc_builder
+*.summary
+*.tcl
+*.txt # Explicitly add any text files used
+*~*
+
+# Mbed Studio
+BUILD
+.mbed
+mbed-os
+
+# system
+.DS_Store
+*.xrf
+*.sft
+*.xrf
+
+# ModelSIm Projects
+**/transcript

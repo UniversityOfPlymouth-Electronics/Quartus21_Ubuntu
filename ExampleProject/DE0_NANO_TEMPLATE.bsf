@@ -1,0 +1,254 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 288 448)
+	(text "DE0_NANO_TEMPLATE" (rect 5 0 119 12)(font "Arial" ))
+	(text "inst" (rect 8 416 20 428)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "CLOCK_50" (rect 0 0 49 12)(font "Arial" ))
+		(text "CLOCK_50" (rect 21 27 70 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "KEY[1..0]" (rect 0 0 40 12)(font "Arial" ))
+		(text "KEY[1..0]" (rect 21 43 61 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "SW[3..0]" (rect 0 0 36 12)(font "Arial" ))
+		(text "SW[3..0]" (rect 21 59 57 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "EPCS_DATA0" (rect 0 0 66 12)(font "Arial" ))
+		(text "EPCS_DATA0" (rect 21 75 87 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "G_SENSOR_INT" (rect 0 0 75 12)(font "Arial" ))
+		(text "G_SENSOR_INT" (rect 21 91 96 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "ADC_SDAT" (rect 0 0 55 12)(font "Arial" ))
+		(text "ADC_SDAT" (rect 21 107 76 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "GPIO_2_IN[2..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "GPIO_2_IN[2..0]" (rect 21 123 89 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "GPIO0__IN[1..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "GPIO0__IN[1..0]" (rect 21 139 88 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "GPIO1__IN[1..0]" (rect 0 0 66 12)(font "Arial" ))
+		(text "GPIO1__IN[1..0]" (rect 21 155 87 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 272 32)
+		(output)
+		(text "LED[7..0]" (rect 0 0 40 12)(font "Arial" ))
+		(text "LED[7..0]" (rect 211 27 251 39)(font "Arial" ))
+		(line (pt 272 32)(pt 256 32)(line_width 3))
+	)
+	(port
+		(pt 272 48)
+		(output)
+		(text "DRAM_ADDR[12..0]" (rect 0 0 92 12)(font "Arial" ))
+		(text "DRAM_ADDR[12..0]" (rect 159 43 251 55)(font "Arial" ))
+		(line (pt 272 48)(pt 256 48)(line_width 3))
+	)
+	(port
+		(pt 272 64)
+		(output)
+		(text "DRAM_BA[1..0]" (rect 0 0 70 12)(font "Arial" ))
+		(text "DRAM_BA[1..0]" (rect 181 59 251 71)(font "Arial" ))
+		(line (pt 272 64)(pt 256 64)(line_width 3))
+	)
+	(port
+		(pt 272 80)
+		(output)
+		(text "DRAM_CAS_N" (rect 0 0 71 12)(font "Arial" ))
+		(text "DRAM_CAS_N" (rect 180 75 251 87)(font "Arial" ))
+		(line (pt 272 80)(pt 256 80)(line_width 1))
+	)
+	(port
+		(pt 272 96)
+		(output)
+		(text "DRAM_CKE" (rect 0 0 59 12)(font "Arial" ))
+		(text "DRAM_CKE" (rect 192 91 251 103)(font "Arial" ))
+		(line (pt 272 96)(pt 256 96)(line_width 1))
+	)
+	(port
+		(pt 272 112)
+		(output)
+		(text "DRAM_CLK" (rect 0 0 57 12)(font "Arial" ))
+		(text "DRAM_CLK" (rect 194 107 251 119)(font "Arial" ))
+		(line (pt 272 112)(pt 256 112)(line_width 1))
+	)
+	(port
+		(pt 272 128)
+		(output)
+		(text "DRAM_CS_N" (rect 0 0 63 12)(font "Arial" ))
+		(text "DRAM_CS_N" (rect 188 123 251 135)(font "Arial" ))
+		(line (pt 272 128)(pt 256 128)(line_width 1))
+	)
+	(port
+		(pt 272 160)
+		(output)
+		(text "DRAM_DQM[1..0]" (rect 0 0 79 12)(font "Arial" ))
+		(text "DRAM_DQM[1..0]" (rect 172 155 251 167)(font "Arial" ))
+		(line (pt 272 160)(pt 256 160)(line_width 3))
+	)
+	(port
+		(pt 272 176)
+		(output)
+		(text "DRAM_RAS_N" (rect 0 0 73 12)(font "Arial" ))
+		(text "DRAM_RAS_N" (rect 178 171 251 183)(font "Arial" ))
+		(line (pt 272 176)(pt 256 176)(line_width 1))
+	)
+	(port
+		(pt 272 192)
+		(output)
+		(text "DRAM_WE_N" (rect 0 0 68 12)(font "Arial" ))
+		(text "DRAM_WE_N" (rect 183 187 251 199)(font "Arial" ))
+		(line (pt 272 192)(pt 256 192)(line_width 1))
+	)
+	(port
+		(pt 272 208)
+		(output)
+		(text "EPCS_ASDO" (rect 0 0 60 12)(font "Arial" ))
+		(text "EPCS_ASDO" (rect 191 203 251 215)(font "Arial" ))
+		(line (pt 272 208)(pt 256 208)(line_width 1))
+	)
+	(port
+		(pt 272 224)
+		(output)
+		(text "EPCS_DCLK" (rect 0 0 59 12)(font "Arial" ))
+		(text "EPCS_DCLK" (rect 192 219 251 231)(font "Arial" ))
+		(line (pt 272 224)(pt 256 224)(line_width 1))
+	)
+	(port
+		(pt 272 240)
+		(output)
+		(text "EPCS_NCSO" (rect 0 0 59 12)(font "Arial" ))
+		(text "EPCS_NCSO" (rect 192 235 251 247)(font "Arial" ))
+		(line (pt 272 240)(pt 256 240)(line_width 1))
+	)
+	(port
+		(pt 272 256)
+		(output)
+		(text "G_SENSOR_CS_N" (rect 0 0 86 12)(font "Arial" ))
+		(text "G_SENSOR_CS_N" (rect 165 251 251 263)(font "Arial" ))
+		(line (pt 272 256)(pt 256 256)(line_width 1))
+	)
+	(port
+		(pt 272 272)
+		(output)
+		(text "I2C_SCLK" (rect 0 0 46 12)(font "Arial" ))
+		(text "I2C_SCLK" (rect 205 267 251 279)(font "Arial" ))
+		(line (pt 272 272)(pt 256 272)(line_width 1))
+	)
+	(port
+		(pt 272 304)
+		(output)
+		(text "ADC_CS_N" (rect 0 0 54 12)(font "Arial" ))
+		(text "ADC_CS_N" (rect 197 299 251 311)(font "Arial" ))
+		(line (pt 272 304)(pt 256 304)(line_width 1))
+	)
+	(port
+		(pt 272 320)
+		(output)
+		(text "ADC_SADDR" (rect 0 0 64 12)(font "Arial" ))
+		(text "ADC_SADDR" (rect 187 315 251 327)(font "Arial" ))
+		(line (pt 272 320)(pt 256 320)(line_width 1))
+	)
+	(port
+		(pt 272 336)
+		(output)
+		(text "ADC_SCLK" (rect 0 0 54 12)(font "Arial" ))
+		(text "ADC_SCLK" (rect 197 331 251 343)(font "Arial" ))
+		(line (pt 272 336)(pt 256 336)(line_width 1))
+	)
+	(port
+		(pt 272 144)
+		(bidir)
+		(text "DRAM_DQ[15..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "DRAM_DQ[15..0]" (rect 176 139 251 151)(font "Arial" ))
+		(line (pt 272 144)(pt 256 144)(line_width 3))
+	)
+	(port
+		(pt 272 288)
+		(bidir)
+		(text "I2C_SDAT" (rect 0 0 47 12)(font "Arial" ))
+		(text "I2C_SDAT" (rect 204 283 251 295)(font "Arial" ))
+		(line (pt 272 288)(pt 256 288)(line_width 1))
+	)
+	(port
+		(pt 272 352)
+		(bidir)
+		(text "GPIO_2[12..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "GPIO_2[12..0]" (rect 195 347 251 359)(font "Arial" ))
+		(line (pt 272 352)(pt 256 352)(line_width 3))
+	)
+	(port
+		(pt 272 368)
+		(bidir)
+		(text "GPIO0_[33..0]" (rect 0 0 57 12)(font "Arial" ))
+		(text "GPIO0_[33..0]" (rect 194 363 251 375)(font "Arial" ))
+		(line (pt 272 368)(pt 256 368)(line_width 3))
+	)
+	(port
+		(pt 272 384)
+		(bidir)
+		(text "GPIO1_[33..0]" (rect 0 0 56 12)(font "Arial" ))
+		(text "GPIO1_[33..0]" (rect 195 379 251 391)(font "Arial" ))
+		(line (pt 272 384)(pt 256 384)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 256 416)(line_width 1))
+	)
+)
