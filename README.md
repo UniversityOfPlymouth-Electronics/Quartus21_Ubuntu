@@ -182,6 +182,7 @@ sudo apt instal libudev1
 
 If you are curious, type `dpkg -L libudev1` to confirm the exact version of the library and to see where it is installed.
 
+### Option 1 - symbolic link
 With version 1 installed, as a workaround, the following seems to get things working:
 
 ```bash
@@ -189,10 +190,19 @@ sudo ln -sf /lib/$(arch)-linux-gnu/libudev.so.1 /lib/$(arch)-linux-gnu/libudev.s
 ```
 
 > **Note** this really is only a **workaround**, and *there may be negative side-effects*. 
->
-> Until Intel changes the dependencies of it’s programmer, I am not aware of any alternative.
->
-> It might be possible to download `libudev.so.0` but at the time of writing, I do not know a secure place to do this
+
+### Option 2 - Install Old Package
+You can look for old packages on the following site:
+
+https://packages.ubuntu.com
+
+Using this, you can search for, download and install `libudev0`. For example:
+
+```bash
+wget http://mirrors.kernel.org/ubuntu/pool/universe/libu/libudev0-shim/libudev0_200-1_amd64.deb
+
+dpkg -i libudev0_200-1_amd64.deb
+```
 
 
 ### Testing 

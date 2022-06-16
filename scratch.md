@@ -36,3 +36,10 @@ Seems I have found it
 
 https://packages.ubuntu.com/impish/amd64/libudev0/download
 
+Try this:
+
+```bash
+wget http://mirrors.kernel.org/ubuntu/pool/universe/libu/libudev0-shim/libudev0_200-1_amd64.deb
+
+dpkg -i libudev0_200-1_amd64.deb
+```
