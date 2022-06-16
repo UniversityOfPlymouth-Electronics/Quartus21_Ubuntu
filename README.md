@@ -125,7 +125,7 @@ crw-rw-rw- 1 root root 189, 18 Jun 16 13:28 /dev/bus/usb/001/019
 Note that user, group and other all have read (r) and write (w) access. Nice. Now we can proceed.
 
 
-## User and License Path
+## Environmental Variables - User and License Path
 Questa will not run unless you have a license for your machine.
 
 This step assumes you've obtained a license file from Intel, and saved it in the `intelFPGA_lite` folder within your home directory.
@@ -161,7 +161,21 @@ You can also simply close your terminal and start another. The belt-and-braces o
 vsim .
 ```
 
-and questa should launch.
+and Questa should launch. 
+
+### Fixing NativeLink
+
+Although you can now run Questa from the command line, you might find it does not launch from within Quartus.
+
+My best suggestion (for now) is to always launch Quartus from the folder in which the quartus executable is located. To do this in one statement, use the following:
+
+```bash
+bash -c "cd $QROOT/quartus/bin && ./quartus"
+```
+
+For reasons I confess I do not fully understand, this seems to enable Native Link to work (as far as I can tell).
+
+Another approach is to set `LD_LIBRARY_PATH`, but I've also experienced problems using this approach.
 
 ## Programming the FPGA - workaround
 
