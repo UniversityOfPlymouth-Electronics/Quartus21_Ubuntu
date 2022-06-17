@@ -198,43 +198,49 @@ Terminal=false
 Path=/home/noutram/intelFPGA_lite/21.1
 ```
 
-Your paths will be different. The last items can be appended to read:
+Your paths will be different of course. The Path can be appended as follows:
 
 ```
 Path=/home/noutram/intelFPGA_lite/21.1/quartus/bin
 ```
 
-For reasons I confess I do not fully understand, this seems to enable Native Link to work (as far as I can tell). It might be a relative path issue.
+For reasons I confess, I do not fully understand the underlying issue here, but this seems to allow Native Link to work (as far as I can tell). It might be a relative path issue.
 
-Another approach is to set `LD_LIBRARY_PATH`, but I've also experienced problems using this approach.
+Another approach I've read is to set `LD_LIBRARY_PATH`, but I've also experienced problems using this approach.
 
-## Programming the FPGA - workaround
+## Programming the FPGA - workarounds
 
 You can open the sample Quartus project included in this repository. What you are likely to discover is that the programming step does not work.
 
-When the programmer runs, it seems to look for the shared library `libudev.so.0`
+> When the programmer runs, it seems to look for the shared library `libudev.so.0`
 
 If it is not present, then the programmer seems to block until it times out with the error message *Unable to read device chain - JTAG chain broken*
 
+Version 0 of this library seems to have been removed from the Debian package repository. 
 
-Version 0 of this library seems to have been removed from the Debian package repository. Instead, you will likely find `libudev.so.1`
+---
 
-If in doubt, install the the libudev1 package1.
+### Option 1 - Symbolic Link
+
+On your system, you will likely find `libudev.so.1`. If not, you can install the libudev1 package as follows.
 
 ```bash
-sudo apt instal libudev1
+sudo apt install libudev1
 ```
 
 If you are curious, type `dpkg -L libudev1` to confirm the exact version of the library and to see where it is installed.
 
-### Option 1 - symbolic link
-With version 1 installed, as a workaround, the following seems to get things working:
+With version 1 installed, as a **workaround**, the following seems to get things working:
 
 ```bash
 sudo ln -sf /lib/$(arch)-linux-gnu/libudev.so.1 /lib/$(arch)-linux-gnu/libudev.so.0
 ```
 
-> **Note** this really is only a **workaround**, and *there may be negative side-effects*. 
+> **Note** this really is only a **workaround**, and *there may be negative side-effects*.
+
+If like me you prefer to avoid such work-arounds, there is another option.
+
+---
 
 ### Option 2 - Install Old Package
 You can look for old packages on the following site:
@@ -248,11 +254,13 @@ wget http://mirrors.kernel.org/ubuntu/pool/universe/libu/libudev0-shim/libudev0_
 
 dpkg -i libudev0_200-1_amd64.deb
 ```
+For me, this seems to be the most satisfactory solution and it *seems* to work.
 
+---
 
 ### Testing 
 
-To test, plug in your board, open a terminal and type the following:
+To test either option 1 or option 2, plug in your board, open a terminal and type the following:
 
 ```bash
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$QROOT/quartus/linux64"
@@ -267,10 +275,14 @@ For my board (DE0-NANO), I see the following identifiers:
 020F30DD 10CL025(Y|Z)/EP3C25/EP4CE22
 ```
 
-From this point, Quartus seems to work without further changes. Note I do not need to run / kill `jtagd` or set any additional environmental variables as some sites suggest. 
+From this point, Quartus seems to work without further changes. 
+
+---
+
+**Note** 
+
+There are other suggestions on the Internet. For the approach above, I do not need to run / kill `jtagd` or set any additional environmental variables as some sites suggest.
 
 From this point, when you plug in your board, it should just work.
 
-
-
-
+---
