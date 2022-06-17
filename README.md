@@ -60,7 +60,7 @@ Follow the instructions on screen. By the end of this process, you should have a
 Note also that the precise filenames shown above might have changed by the time you do this.
 
 ## udev rules
-Quartus should now be able to run, but my default, it will not have sufficient rights to communicate with the DE0-Nano board.
+Quartus should now be able to run, but by default, it will not have sufficient permissions to communicate with the DE0-Nano board.
 
 The DE0-Nano board (like many) has a USB Blaster J-Tag programmer built in. This USB device will only be accessible by the root user. Quartus on the other hand will be running with normal user permissions. This is where `udev` comes in.
 
@@ -94,7 +94,7 @@ Once the above is done, type the following:
 sudo udevadm control --reload
 ```
 
-At this point, I do a **reboot**. I am not sure if this is needed, but I do it anyway!
+At this point, I perform a **reboot**. I am not sure if this is needed, but I do it anyway :)
 
 Now, when you plug in your USB-Blaster device, the permissions should be updated. 
 
@@ -178,7 +178,7 @@ In Quartus, select `Tools->Options->EDA Tools Options`, and specify the folder w
 
 <figure>
 <img src="./img/quartus_eda.png" width="600px">
-<figcaption>Course Icon</figcaption>
+<figcaption>Complete the Questa Intel FPGA path</figcaption>
 </figure>
 
 However, unless you launch Quartus from the correct folder, this still does not seem to work. This seems to be related to checking the license file.
