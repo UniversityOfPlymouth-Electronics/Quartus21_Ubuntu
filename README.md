@@ -210,7 +210,7 @@ Your paths will be different of course. The Path can be appended as follows:
 Path=/home/noutram/intelFPGA_lite/21.1/quartus/bin
 ```
 
-For reasons I confess, I do not fully understand the underlying issue here, but this seems to allow Native Link to work (as far as I can tell). It might be a relative path issue.
+For reasons I do not fully understand, this seems to allow Native-Link to function (as far as I can tell). It might be a relative path issue.
 
 Another approach I've read is to set `LD_LIBRARY_PATH`, but I've also experienced problems using this approach.
 
