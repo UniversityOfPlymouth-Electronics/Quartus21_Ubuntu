@@ -177,7 +177,7 @@ The first thing you need to do is tell Quartus where the Questa simulator is loc
 In Quartus, select `Tools->Options->EDA Tools Options`, and specify the folder where vsim is located.
 
 <figure>
-<img src="./img/quartus_eda.png" width="600px">
+<img src="./img/quartus_eda.png">
 <figcaption>Complete the Questa Intel FPGA path</figcaption>
 </figure>
 
