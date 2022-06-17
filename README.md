@@ -165,15 +165,46 @@ and Questa should launch.
 
 ### Fixing NativeLink
 
-Although you can now run Questa from the command line, you might find it does not launch from within Quartus.
+Quartus can launch Questa from the context of your active project. Although you can now run Questa from the command line, you might find it does not launch from within Quartus.
 
-My best suggestion (for now) is to always launch Quartus from the folder in which the quartus executable is located. To do this in one statement, use the following:
+The first thing you need to do is Quartus where the Questa simulator is located.
+
+In Quartus, select Tools->Options->EDA Tools Options, and specify the folder where vsim is located.
+
+<figure>
+<img src="./img/quartus_eda.png" width="600px">
+<figcaption>Course Icon</figcaption>
+</figure>
+
+However, unless you launch Quartus from the correct folder, this does not seem to work. 
+
+From the command line, you can run Quartus one statement using the following:
 
 ```bash
 bash -c "cd $QROOT/quartus/bin && ./quartus"
 ```
 
-For reasons I confess I do not fully understand, this seems to enable Native Link to work (as far as I can tell).
+To launch via a shortcut (e.g. desktop icon), you can edit the desktop shortcut to achieve the same thing. In my case, I have a Quartus icon on the desktop. This is a file with extension `.desktop`. Editing this file, you should see something similar to the following:
+
+```
+[Desktop Entry]
+Type=Application
+Version=0.9.4
+Name=Quartus (Quartus Prime 21.1) Lite Edition
+Comment=Quartus (Quartus Prime 21.1)
+Icon=/home/noutram/intelFPGA_lite/21.1/quartus/adm/quartusii.png
+Exec=/home/noutram/intelFPGA_lite/21.1/quartus/bin/quartus --64bit
+Terminal=false
+Path=/home/noutram/intelFPGA_lite/21.1
+```
+
+Your paths will be different. The last items can be appended to read:
+
+```
+Path=/home/noutram/intelFPGA_lite/21.1/quartus/bin
+```
+
+For reasons I confess I do not fully understand, this seems to enable Native Link to work (as far as I can tell). It might be a relative path issue.
 
 Another approach is to set `LD_LIBRARY_PATH`, but I've also experienced problems using this approach.
 
