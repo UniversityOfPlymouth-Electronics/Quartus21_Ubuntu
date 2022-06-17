@@ -228,7 +228,7 @@ Version 0 of this library seems to have been removed from the Debian package rep
 
 ### Option 1 - Symbolic Link
 
-On your system, you will likely find `libudev.so.1`. If not, you can install the libudev1 package as follows.
+On your system, you will likely find `libudev.so.1`. If not, you can install the `libudev1` package as follows.
 
 ```bash
 sudo apt install libudev1
