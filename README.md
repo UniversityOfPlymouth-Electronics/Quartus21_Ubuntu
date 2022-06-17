@@ -178,8 +178,9 @@ In Quartus, select `Tools->Options->EDA Tools Options`, and specify the folder w
 
 <figure>
 <img src="./img/quartus_eda.png">
-<figcaption>Complete the Questa Intel FPGA path</figcaption>
+<figcaption><em>Complete the Questa Intel FPGA path</em></figcaption>
 </figure>
+
 
 However, unless you launch Quartus from the correct folder, this still does not seem to work. This seems to be related to checking the license file.
 
