@@ -45,14 +45,19 @@ All the files should be in the same folder. I am going to install locally (for j
 
 Open a terminal and change to the directory with all the installers and type:
 
-
 ```bash
 chmod +x QuartusLiteSetup-21.1.0.842-linux.run
 ```
 
-This makes the installer e**x**ecutable. Follow the instructions on screen.
+This makes the installer e**x**ecutable. Now run the installer as follows:
 
-By the end of this process, you should have an icon on the desktop. You might need to right-click this to allow it to be executable.
+```bash
+./QuartusLiteSetup-21.1.0.842-linux.run
+```
+
+Follow the instructions on screen. By the end of this process, you should have an icon on the desktop. You might need to right-click this to allow it to be executable.
+
+Note also that the precise filenames shown above might have changed by the time you do this.
 
 ## udev rules
 Quartus should now be able to run, but my default, it will not have sufficient rights to communicate with the DE0-Nano board.
