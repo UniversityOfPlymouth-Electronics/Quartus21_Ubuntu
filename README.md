@@ -165,20 +165,20 @@ and Questa should launch.
 
 ### Fixing NativeLink
 
-Quartus can launch Questa from the context of your active project. Although you can now run Questa from the command line, you might find it does not launch from within Quartus.
+Quartus can launch Questa from the context of your active project. Although you can now run Questa from the command line, you might find it does not launch from within Quartus (`Tools->Run Simulation Tool->RTL Simulation`).
 
-The first thing you need to do is Quartus where the Questa simulator is located.
+The first thing you need to do is tell Quartus where the Questa simulator is located.
 
-In Quartus, select Tools->Options->EDA Tools Options, and specify the folder where vsim is located.
+In Quartus, select `Tools->Options->EDA Tools Options`, and specify the folder where vsim is located.
 
 <figure>
 <img src="./img/quartus_eda.png" width="600px">
 <figcaption>Course Icon</figcaption>
 </figure>
 
-However, unless you launch Quartus from the correct folder, this does not seem to work. 
+However, unless you launch Quartus from the correct folder, this still does not seem to work. This seems to be related to checking the license file.
 
-From the command line, you can run Quartus one statement using the following:
+From the command line, you can fix this by running Quartus as follows:
 
 ```bash
 bash -c "cd $QROOT/quartus/bin && ./quartus"
