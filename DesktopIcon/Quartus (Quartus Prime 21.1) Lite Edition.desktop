@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=0.9.4
+Name=Quartus 21.1 Lite Edition
+Comment=Quartus 21.1
+Icon=/opt/intelFPGA_lite/21.1/quartus/adm/quartusii.png
+Exec=/opt/intelFPGA_lite/21.1/quartus/bin/quartus --64bit
+Terminal=true
+Path=/opt/intelFPGA_lite/21.1

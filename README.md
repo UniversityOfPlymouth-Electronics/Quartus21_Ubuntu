@@ -129,90 +129,111 @@ crw-rw-rw- 1 root root 189, 18 Jun 16 13:28 /dev/bus/usb/001/019
 
 Note that user, group and other all have read (r) and write (w) access. Nice. Now we can proceed.
 
+## Moving the Install to /opt
+So that all student accounts can run Quartus, it needs to be installed in a shared location. 
+
+> At this point, quartus is installed in `$HOME/intelFPGA_lite`
+
+Globally available software is commonly located in the `/opt` folder. So do you move (`mv`) or copy (`cp`)?
+
+* `mv` will move the files, including all the permissions. This is also very fast.
+* `cp` will adopt the permission of the user performing the copy
+
+I want to keep everything as it is for now, so from the home folder, I type:
+
+```bash
+sudo mv intelFPGA_lite /opt
+```
+
+I also need to update the desktop icon.
+
+```bash
+cd Desktop
+nano Q
+# Press tab to autocomplete
+``` 
+
+My file now reads as follows:
+
+```bash
+[Desktop Entry]
+Type=Application
+Version=0.9.4
+Name=Quartus 21.1 Lite Edition
+Comment=Quartus 21.1
+Icon=/opt/intelFPGA_lite/21.1/quartus/adm/quartusii.png
+Exec=/opt/intelFPGA_lite/21.1/quartus/bin/quartus --64bit
+Terminal=true
+Path=/opt/intelFPGA_lite/21.1
+```
+
+A copy of this is provided in this repository.
 
 ## Environmental Variables - User and License Path
 Questa will not run unless you have a license for your machine.
 
-This step assumes you've obtained a license file from Intel, and saved it in the `intelFPGA_lite` folder within your home directory.
+This step assumes you've obtained a license file from Intel, and saved it in the `/opt/intelFPGA_lite` folder.
 
-You now need to edit the .bashrc file by typing:
-
-```bash
-nano .bashrc
-```
-
-Add the following to the end:
+You now need to create some environmental variables:
 
 ```bash
-export QROOT="$HOME/intelFPGA_lite/21.1"
-export QSYS_ROOTDIR="$QROOT/quartus/sopc_builder/bin"
-export PATH=$PATH:$QROOT/questa_fse/bin:$QROOT/quartus/linux64:$QROOT/quartus/bin
-export LM_LICENSE_FILE="$HOME/intelFPGA_lite/LR-084006_License.dat"
+sudo nano /etc/profiles.d/quartus.sh
 ```
 
-You may need to change `$QROOT` if you installed in another location. 
+Add write the following:
 
-* The name of your license file will also be different to mine.
+```bash
+export QROOT="/opt/intelFPGA_lite/21.1"
+export QUARTUS_ROOTDIR="$QROOT/quartus"
+export QSYS_ROOTDIR="$QUARTUS_ROOTDIR/qsys/bin:$QUARTUS_ROOTDIR/sopc_builder/bin"
+export PATH="$PATH:$QUARTUS_ROOTDIR/bin:$QSYS_ROOTDIR"
+export PATH="$QROOT/quartus/bin:$PATH:$QROOT/questa_fse/bin:$QROOT/quartus/linux64"
+export LM_LICENSE_FILE="/opt/intelFPGA_lite/LR-085733_License.dat"
+```
+
+> A copy of this file `quartus.sh` is provided in this repository.
+
+**Note** that name of your license file will also be different to mine.
 
 Save (CTRL-o) and exit (CTRL-x) from nano. For this to take immediate effect, you can type 
 
+
+> At this point, I tend to reboot and log back in.
+
+To test, simply type the following from a terminal:
+
 ```bash
-source .bashrc
+quartus
 ```
 
-You can also simply close your terminal and start another. The belt-and-braces option is to log out and back in again. To test, simply type the following:
+The advantage of this is that you can spot any errors in the terminal. Next, close quartus and try to run Questa:
 
 ```bash
 vsim .
 ```
 
-and Questa should launch. 
+and Questa should launch.
 
 ### Fixing NativeLink
 
-Quartus can launch Questa from the context of your active project. Although you can now run Questa from the command line, you might find it does not launch from within Quartus (`Tools->Run Simulation Tool->RTL Simulation`).
+Although you can now run Questa from the command line, you might find it does not launch from within Quartus (`Tools->Run Simulation Tool->RTL Simulation`).
 
 The first thing you need to do is tell Quartus where the Questa simulator is located.
 
-In Quartus, select `Tools->Options->EDA Tools Options`, and specify the folder where vsim is located.
+In Quartus, select `Tools->Options->EDA Tools Options`, and specify the folder where vsim is located. The "Questa Intel FPGA" field should read:
+
+```
+/opt/intelFPGA_lite/21.1/questa_fse/bin
+```
+
+See the screenshot below.
 
 <figure>
 <img src="./img/quartus_eda.png">
 <figcaption><em>Complete the Questa Intel FPGA path</em></figcaption>
 </figure>
 
-
-However, unless you launch Quartus from the correct folder, this still does not seem to work. This seems to be related to checking the license file.
-
-From the command line, you can fix this by running Quartus as follows:
-
-```bash
-bash -c "cd $QROOT/quartus/bin && ./quartus"
-```
-
-To launch via a shortcut (e.g. desktop icon), you can edit the desktop shortcut to achieve the same thing. In my case, I have a Quartus icon on the desktop. This is a file with extension `.desktop`. Editing this file, you should see something similar to the following:
-
-```
-[Desktop Entry]
-Type=Application
-Version=0.9.4
-Name=Quartus (Quartus Prime 21.1) Lite Edition
-Comment=Quartus (Quartus Prime 21.1)
-Icon=/home/noutram/intelFPGA_lite/21.1/quartus/adm/quartusii.png
-Exec=/home/noutram/intelFPGA_lite/21.1/quartus/bin/quartus --64bit
-Terminal=false
-Path=/home/noutram/intelFPGA_lite/21.1
-```
-
-Your paths will be different of course. The Path can be appended as follows:
-
-```
-Path=/home/noutram/intelFPGA_lite/21.1/quartus/bin
-```
-
-For reasons I do not fully understand, this seems to allow Native-Link to function (as far as I can tell). It might be a relative path issue.
-
-Another approach I've read is to set `LD_LIBRARY_PATH`, but I've also experienced problems using this approach.
+**Note** that this only works if you have built your current project.
 
 ## Programming the FPGA - workarounds
 
@@ -269,8 +290,6 @@ For me, this seems to be the most satisfactory solution and it *seems* to work.
 To test either option 1 or option 2, plug in your board, open a terminal and type the following:
 
 ```bash
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$QROOT/quartus/linux64"
-
 jtagconfig
 ```
 
