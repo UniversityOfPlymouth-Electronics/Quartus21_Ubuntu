@@ -112,7 +112,7 @@ Furthermore, the free version of Questa will not run unless you have a license f
 You now need to create some environmental variables for ALL USERS:
 
 ```bash
-sudo nano /etc/profiles.d/quartus.sh
+sudo nano /etc/profile.d/quartus.sh
 ```
 
 Add write the following:
