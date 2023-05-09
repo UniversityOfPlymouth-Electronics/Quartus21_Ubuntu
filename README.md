@@ -317,3 +317,13 @@ There are other suggestions on the Internet. For the approach above, I do not ne
 From this point, when you plug in your board, it should just work.
 
 ---
+
+## Menu Icon
+
+On Ubuntu, the Quartus installer creates an icon on the Desktop, but not in the menus. A quick workaround is to copy the desktop launch to `/usr/share/applications/` 
+
+For example:
+
+```bash
+sudo cp ~/Desktop/Quartus\ \(Quartus\ Prime\ 21.1\)\ Lite\ Edition.desktop /usr/share/applications/
+```
