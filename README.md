@@ -327,3 +327,12 @@ For example:
 ```bash
 sudo cp ~/Desktop/Quartus\ \(Quartus\ Prime\ 21.1\)\ Lite\ Edition.desktop /usr/share/applications/
 ```
+
+You will also find the `.desktop` file in `~/.local/share/applications`.
+
+## Open With Menu
+
+In Ubuntu, if you right click on a `.qpf` file, you won't see Quartus listed as an application to associte with the `.qpf` extension. To correct this, edit your `.desktop` file, and on the line that begin with `Exec=`, add the parameter `%F` on the end.
+
+
+~/.local/share/applications
