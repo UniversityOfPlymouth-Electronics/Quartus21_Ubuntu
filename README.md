@@ -7,7 +7,7 @@ We have only tested this with a Terasic DE0-Nano FPGA board.
 The notes below are collated from various sources in the Internet. 
 
 * There is **NO GUARANTEE** these notes or scripts will work
-* These notes are a best effort to install Quartus 21.1 on Ubuntu 20.04. They are subject to change in the light of new information.
+* These notes are a best effort to install Quartus 21.1 on Ubuntu 22.04. They are subject to change in the light of new information.
 * **Use at your own risk**. Neither the author or the University of Plymouth accept any liability for content of this repository. 
 
 ## Download and install Ubuntu 20.04 LTS
