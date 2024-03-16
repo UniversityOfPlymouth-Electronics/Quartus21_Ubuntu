@@ -1,4 +1,4 @@
-# Quartus 21 for Ubuntu 20.04
+# Quartus 21 for Ubuntu 22.04
 Setup instructions for Intel® Quartus® 21.x and Questa® for Ubuntu 20.04. These notes are intended for internal use at the University of Plymouth UK. This repository has been made public in case they should benefit others.
 
 We have only tested this with a Terasic DE0-Nano FPGA board.
